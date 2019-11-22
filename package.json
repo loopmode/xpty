@@ -1,6 +1,6 @@
 {
   "name": "@loopmode/xpty",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Provides xterm.js and node-pty helpers for react electron apps",
   "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
   "license": "MIT",
