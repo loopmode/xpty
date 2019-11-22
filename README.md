@@ -13,10 +13,12 @@ There are two parts to this:
 ### Creating a child process
 
 ```ts
-const ptyProcess = PtyManager.connect({
+import { PtyManager, createCommand } from '@loopmode/xpty';
+const command = createCommand({
   cmd: 'ls -lah',
   cwd: '~'
 });
+const ptyProcess = PtyManager.connect(command);
 ```
 
 If you do not want to immediatly execute the command, pass `false` as second argument.
@@ -25,12 +27,22 @@ The returned object is an [`pty.IPty`](https://github.com/microsoft/node-pty/blo
 
 ### Rendering a view
 
-Basically, you render the `Xterminal` component and pass a `ptyProcess` prop to it.
+Basically, you render the `XTerminal` component and pass a `ptyProcess` prop to it.
 
 ```tsx
-const Example = ({ptyProcess}) => {
+import React from 'react';
+import { XTerminal } from '@loopmode/xpty';
+
+export const Example = ({ ptyProcess }) => {
   return (
     <XTerminal ptyProcess={ptyProcess}>
   )
 }
 ```
+
+### TODO
+
+- hook, e.g. `usePty`, to get a `ptyProcess` easily
+- docs for existing features and props
+- more features and props
+- tests
