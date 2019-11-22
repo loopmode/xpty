@@ -8,7 +8,6 @@ import kill from 'tree-kill';
 import { toObject } from './key-value-converter';
 import { createCommandString } from './create-command-string';
 import { Command } from '../command';
- 
 
 interface PtyRecord {
   settings: PtyOptions;
@@ -90,8 +89,8 @@ export class PtyProcessManager extends EventEmitter {
     }
   }
 
-  connect(command: Command, execute?: boolean): pty.IPty {
-    console.log('connect');
+  connect(command: Command, execute = true): pty.IPty {
+    // console.log('connect');
     const settings = {
       ...defaults,
       env: {
